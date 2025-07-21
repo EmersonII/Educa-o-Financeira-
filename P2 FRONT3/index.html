@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Avaliação Front-end 3</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+		rel="stylesheet">
+
+</head>
+
+<body>
+
+	<header>
+		<div>
+			<img src="img/if-delivery.png" alt="Logo IF Delivery">
+			<div class="carrinho">
+				<img src="img/carrinho.png">
+				<span class="texto-valor">R$ <span class="valor">35.00</span></span>
+			</div>
+		</div>
+	</header>
+
+
+	<main>
+
+		<div class="titulo">
+			Cardápio - IF Delivery
+			<span class="sub">Clique no prato desejado para adicioná-lo ao pedido!</span>
+		</div>
+
+		<div class="card">
+			<div class="produto" title="Executivo de Carne"><img src="img/executivo-carne.jpg"></div>
+			<div class="desc-produto">Executivo de Carne - R$ <span class="valor-produto">45,00</span></div>
+		</div>
+		<div class="card">
+			<div class="produto" title="Feijoada"><img src="img/feijoada.jpg"></div>
+			<div class="desc-produto">Feijoada - R$ <span class="valor-produto">57,00</span></div>
+		</div>
+		<div class="card">
+			<div class="produto" title="Frango à Parmegiana"><img src="img/parmegiana.jpg"></div>
+			<div class="desc-produto">Frango à Parmegiana - R$ <span class="valor-produto">52,00</span></div>
+		</div>
+		<div class="card">
+			<div class="produto" title="Executivo de Frango"><img src="img/executivo-frango.jpg"></div>
+			<div class="desc-produto"> Executivo de Frango - R$ <span class="valor-produto">42,00</span></div>
+		</div>
+
+		<div class="card">
+			<div class="produto" title="Especial Família"><img src="img/prato-especial.jpg"></div>
+			<div class="desc-produto">Especial Família - R$ <span class="valor-produto">94,00</span></div>
+		</div>
+		<div class="card">
+			<div class="produto" title="Macarronada"><img src="img/macarrao.jpg"></div>
+			<div class="desc-produto">Macarronada - R$ <span class="valor-produto">35,50</span></div>
+		</div>
+		<div class="card">
+			<div class="produto" title="Strogonoff"><img src="img/strogonofe.jpg"></div>
+			<div class="desc-produto">Strogonoff - R$ <span class="valor-produto">47,00</span></div>
+		</div>
+		<div class="card">
+			<div class="produto" title="Batata Frita (500g)"><img src="img/batata.jpg"></div>
+			<div class="desc-produto"> Batata Frita (500g) - R$ <span class="valor-produto">35,00</span></div>
+		</div>
+
+		<div class="titulo">
+			Lista de Pedidos
+			<span class="sub">Abaixo estão todos os pratos adicionados por você!</span>
+		</div>
+
+		<div class="pedidos">
+			<ol>
+				<li>Batata Frita (500g)</li>
+			</ol>
+		</div>
+
+	</main>
+
+	<footer>
+		<span>Avaliação Desenvolvida por Emerson Alves!</span>
+	</footer>
+
+	<script>
+		//adicionar todos os produtos para aplicar o evento
+		let produtos = document.querySelectorAll(".produto")
+		for (let i = 0; i < produtos.length; i++) {
+			produtos[i].addEventListener("click", addProduto)
+			produtos[i].addEventListener("dblclick", destaque)
+		}
+
+		function addProduto(event) {
+			//adicionar elemento na lista
+			let novo = document.createElement("li")
+			novo.innerText = event.target.parentNode.title
+			let pai = document.querySelector("ol")
+			pai.appendChild(novo)
+
+			//atualizar o carrinho
+			let valorCarrinho = document.querySelector(".valor")
+			switch(event.target.parentNode.title){
+			case "Executivo de Carne":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 45
+				break
+			case "Feijoada":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 52
+				break
+				case "Frango à Parmegiana":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 42
+				break
+			case "Executivo de Frango":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 94
+				break
+			case "Especial Família":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 35.50
+				break
+			case "Macarronada":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 47
+				break
+			case "Strogonoff":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 35
+				break
+			case "Batata Frita (500g)":
+				valorCarrinho.innerText = parseFloat(valorCarrinho.innerText) + 35
+				break
+			}
+		}
+		
+		function destaque(event){
+			event.target.parentNode.style.border = "6px solid black"
+		}
+		document.addEventListener("keydown", limpaCarrinho)
+		function limpaCarrinho(event){
+			if(event.key == "Escape"){
+				document.querySelector(".valor").innerText = 0
+				document.querySelector("ol").innerText = ""
+				
+			}
+		}
+
+	</script>
+</body>
+
+</html>

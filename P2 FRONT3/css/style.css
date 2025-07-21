@@ -1,0 +1,138 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", serif;
+}
+
+header{
+	width: 100%;
+	height: 15vh;
+	background-color: black;
+
+	display: flex;
+	justify-content: center;
+
+	div{
+		width: 90%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	
+		img{
+			
+			height: 80%;
+		}
+
+		.carrinho{
+			width: 20%;
+			height: 30%;
+			display: flex;
+			justify-content: flex-end;
+
+			img{
+				height: 100%;
+				margin-right: 2vh;
+			}
+
+			.texto-valor{
+				color: white;
+				font-size: 4vh;
+			}
+		}
+	}
+}
+
+main{
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	
+}
+
+.titulo{
+	width: 100%;
+	margin-top: 4vh;
+	font-size: 5vh;
+	color: #CAAC8C;
+	font-weight: bold;
+
+	.sub{
+		display: block;
+		font-weight: normal;
+		font-size: 2vh;
+	}
+}
+
+.card{
+	width: 21%;
+	text-align: center;
+	margin-top: 4vh;
+	.produto{
+		width: 100%;
+		height: 23vh;
+		background-color: black;
+		border-radius: 1vh;
+		overflow:hidden;
+
+		img{
+			width: 100%;
+			height: 100%;
+		}
+
+		:hover{
+			transform: scale(1.1);
+			cursor: pointer;
+		}
+
+	}
+
+	.desc-produto{
+		color: #CAAC8C;
+		margin-top: 1vh;
+		font-size: 2.4vh;
+
+		.valor-produto{
+			font-weight: bold;
+		}
+	}
+}
+
+.pedidos{
+	width: 100%;
+	margin-top: 4vh;
+	margin-bottom: 6vh;
+	font-size: 2.2vh;
+
+	.qtde{
+		font-weight: bold;
+		margin-right: 4vh;
+	}
+}
+
+
+
+button{
+	width: 10vh;
+	height: 3vh;
+	font-size: 1.7vh;
+	border-radius: .5vh;
+	cursor: pointer;
+	background-color: darkred;
+	color: white;
+	border: 0;
+}
+
+footer{
+	width: 100%;
+	height: 10vh;
+	font-size: 2.5vh;
+	background-color: black;
+	color: white;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
